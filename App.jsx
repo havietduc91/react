@@ -1,52 +1,50 @@
 import React from 'react';
+import {Link} from 'react-router';
+
 
 class App extends React.Component {
-    constructor() {
-        super();
-
-        this.state = {
-            data:
-                [
-                    {
-                        component: 'First...',
-                        id: 1
-                    },
-
-                    {
-                        component: 'Second...',
-                        id: 2
-                    },
-
-                    {
-                        component: 'Third...',
-                        id: 3
-                    }
-                ]
-        }
-
-    }
-
     render() {
-        return (
+        return(
             <div>
-                <div>
-                    {this.state.data.map((dynamicComponent, i) => <Content
-                        key = {i} componentData = {dynamicComponent}/>)}
-                </div>
-            </div>
-        );
-    }
-}
+                <ul>
+                    <li><Link to="home">Home</Link></li>
+                    <li><Link to="about">About</Link></li>
+                    <li><Link to="contact">Contact</Link></li>
+                </ul>
 
-class Content extends React.Component {
-    render() {
-        return (
-            <div>
-                <div>{this.props.componentData.component}</div>
-                <div>{this.props.componentData.id}</div>
+                {this.props.children}
             </div>
-        );
+        )
     }
 }
 
 export default App;
+
+
+
+export class Home extends React.Component {
+    render() {
+        return (
+            <h1>Home Page Content</h1>
+        )
+    }
+}
+
+
+
+export class About extends React.Component {
+    render() {
+        return (
+            <h1>About Page Content</h1>
+        )
+    }
+}
+
+
+export class Contact extends React.Component {
+    render()  {
+        return (
+            <h1>Contact Page Content</h1>
+        )
+    }
+}

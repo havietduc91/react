@@ -12,8 +12,8 @@ class App extends React.Component {
         this.updateState = this.updateState.bind(this);
     };
 
-    updateState(e) {
-        this.setState({data: e.target.value});
+    updateState() {
+        this.setState({data: 'Data updated from the child component...'})
     }
 
     render() {
@@ -31,11 +31,11 @@ class Content extends React.Component {
     render() {
         return (
             <div>
-                <input type = "text" value = {this.props.myDataProp}
-                       onChange = {this.props.updateStateProp} />
+                <button onClick = {this.props.updateStateProp}>CLICK</button>
                 <h3>{this.props.myDataProp}</h3>
             </div>
         );
     }
 }
+
 export default App;

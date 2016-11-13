@@ -12,6 +12,9 @@ export function addTodo(text) {
 }
 
 export function removeTodo(text) {
-    console.log('removeTodo--------------');
-    //TODO: Remove todo from todos
+    return {
+        type: REMOVE_TODO,
+        id: nextTodoId--,
+        text
+    };
 }

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { ADD_TODO } from '../actions/actions'
+import { ADD_TODO, REMOVE_TODO } from '../actions/actions';
 
 function todo(state, action) {
     switch (action.type) {
@@ -23,6 +23,9 @@ function todos(state = [], action) {
                 ...state,
                 todo(undefined, action)
         ]
+
+        case REMOVE_TODO:
+            return state.filter((item) => item.text !== action.text)
 
         default:
             return state

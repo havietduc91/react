@@ -1,4 +1,5 @@
 export const ADD_TODO = 'ADD_TODO';
+export const REMOVE_TODO = 'REMOVE_TODO';
 
 let nextTodoId = 0;
 
@@ -8,4 +9,9 @@ export function addTodo(text) {
         id: nextTodoId++,
         text
     };
+}
+
+export function removeTodo(text) {
+    console.log('removeTodo--------------');
+    //TODO: Remove todo from todos
 }

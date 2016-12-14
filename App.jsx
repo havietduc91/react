@@ -1,6 +1,7 @@
 import React from 'react';
-import Reactable from 'reactable';
-var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
+import { DataTable } from 'react-data-components';
+
+let ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 class App extends React.Component {
 
@@ -35,7 +36,26 @@ class App extends React.Component {
 
         }.bind(this));
 
-        let Table = Reactable.Table;
+        // Generate random data
+        let names = [ 'Carlos', 'Juan', 'Jesus', 'Alberto', 'John' ];
+        let cities = [ 'Chicago', 'Tampico', 'San Francisco', 'Mexico City', 'Boston', 'New York' ];
+        let addresses = [ '333 West Wacker Drive', '1931 Insurgentes Sur', '1 Lombard Street', '55 Av Hidalgo'];
+
+        let data = [];
+        for (let i = 0; i < 1000; i++) {
+            data.push({
+                id: i,
+                name: names[~~(Math.random() * names.length)],
+                city: cities[~~(Math.random() * cities.length)],
+                address: addresses[~~(Math.random() * addresses.length)]
+            });
+        }
+
+        let columns = [
+            { title: 'Name', prop: 'name'  },
+            { title: 'City', prop: 'city' },
+            { title: 'Address', prop: 'address' }
+        ];
 
         return (
             <div>
@@ -46,26 +66,15 @@ class App extends React.Component {
                     {items}
                 </ReactCSSTransitionGroup>
 
-                <Table className="table" id="table" data={[
-                    { Name: 'Lee Salminen', Age: '23', Position: 'Programmer'},
-                    { Name: 'Griffin Smith', Age: '18', Position: 'Engineer'},
-                    { Name: 'Ian Zhang', Age: '28', Position: 'Developer'}
-                ]}
-                   sortable={[
-                       {
-                           column: 'Name',
-                           sortFunction: function(a, b){
-                               // Sort by last name
-                               let nameA = a.split(' ');
-                               let nameB = b.split(' ');
-
-                               return nameA[1].localeCompare(nameB[1]);
-                           }
-                       },
-                       'Age',
-                       'Position'
-                   ]}
-                   defaultSort={{column: 'Age', direction: 'desc'}}/>
+                <DataTable
+                    className="container"
+                    keys="id"
+                    columns={columns}
+                    initialData={data}
+                    initialPageLength={5}
+                    initialSortBy={{ prop: 'city', order: 'descending' }}
+                    pageLengthOptions={[ 5, 20, 50 ]}
+                />
             </div>
         );
     }

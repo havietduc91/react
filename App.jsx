@@ -15,7 +15,6 @@ const customStyles = {
     }
 };
 
-
 class App extends React.Component {
 
     constructor(props) {
@@ -32,7 +31,6 @@ class App extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     };
 
-
     openModal() {
         this.setState({modalIsOpen: true});
     }
@@ -45,7 +43,6 @@ class App extends React.Component {
     closeModal() {
         this.setState({modalIsOpen: false});
     }
-
 
     handleAdd() {
         let newItems = this.state.items.concat([prompt('Create New Item')]);
@@ -61,7 +58,6 @@ class App extends React.Component {
     handleClick() {
         alert('Bạn đã đăng kí thành công !!!');
     }
-
 
     render() {
         let items = this.state.items.map(function (item, i) {
@@ -118,7 +114,6 @@ class App extends React.Component {
                     <button onClick={this.closeModal}>Hủy</button>
                 </Modal>
 
-
                 <ReactCSSTransitionGroup transitionName="example"
                                          transitionEnterTimeout={500} transitionLeaveTimeout={500}>
                     {items}
@@ -137,6 +132,5 @@ class App extends React.Component {
         );
     }
 }
-
 
 export default App;

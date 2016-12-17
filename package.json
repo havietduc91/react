@@ -22,7 +22,9 @@
     "react-addons-css-transition-group": "^15.3.2",
     "react-data-components": "^1.1.0",
     "react-dom": "^15.4.1",
+    "react-modal": "^1.6.4",
     "react-redux": "^4.4.5",
+    "react-skylight": "^0.4.1",
     "redux": "^3.6.0",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"

@@ -27,6 +27,7 @@ Step 3. Go to website by the link http://localhost:8080/
 
 4. Coding style via https://github.com/planningcenter/react-patterns/blob/master/README.md
  
+```
 ├── package.json
 ├── src
 │   ├── actions
@@ -37,4 +38,5 @@ Step 3. Go to website by the link http://localhost:8080/
 │   └── store
 ├── tools
 └── webpack.config.js
+
 We have a package.json since we'll use npm to mana
